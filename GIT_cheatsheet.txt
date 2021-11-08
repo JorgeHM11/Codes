@@ -1,0 +1,7 @@
+git clone link #para clonar repo
+git clone -b nombre link #clonar branch de repo
+git branch #says which branch you are in
+git status #to see repository status
+git add . #agregar todos los cambios
+git commit -m'nombre' #commit cambios
+git push #merge cambios
