@@ -1,0 +1,64 @@
+git clone link #para clonar repo
+git clone -b nombre link #clonar branch de repo
+git branch #says which branch you are in
+git status #to see repository status
+git add . #agregar todos los cambios
+git commit -m'nombre' #commit cambios
+git push #merge cambios
+
+
+# con commit
+git reset -- hard HEAD^ #allows to remove tha last commit
+git reset -- hard HEAD~2 #remove last 2 commits
+git reset HEAD^ #remove changes
+git branch newbranchname #save commits on new branch name
+git reset --hard @{u} #remove all local commits unpushed
+
+
+
+git stash #saves the uncommitted changes locally, allowing you to make changes, switch branches, etc
+git stast pop #hace que tus cambios stashed regresen
+
+
+# cambiar de branch los commits que habías hecho en un branch equivocado
+git stash
+git config core.fileMode
+git config core.fileMode false
+git branch --track develop origin/develop
+git checkout develop # cambias al branch develop
+git checkout -b cambio # cambias a un nuevo branch 'cambio'
+git stash pop #recuperas los cambios que se guardaron al branch cambio
+git add -A
+git commit -m'we add constants'
+git config core.fileMode #comprobar que es false
+git push origin cambio #push our branch cambio
+
+#sobre branches
+git branch -D branch_to_delete #eliminar branch
+git branch -m oldname newname #renombrar un branch
+git branch -m newname #renombrar el branch en el que estás trabajando
+
+
+#cambiar los commits unpushed a un branch existente
+git checkout existingbranch
+git merge master
+git checkout master
+git reset --hard HEAD~3 # Go back 3 commits. You *will* lose uncommitted work.
+git checkout existingbranch
+
+#cambias los unpushed commit a un nuevo branch
+git branch newbranch      # Create a new branch, saving the desired commits
+git reset --hard HEAD~3   # Move master back by 3 commits (Make sure you know how many commits you need to go back)
+git checkout newbranch    # Go to the new branch that still has the desired commits
+
+
+
+#el camino que segui para cambiar a un nuevo branch
+git stash
+git add .
+git checkout -b nuevo
+git branch
+git merge GitCodes
+git log
+git push --set-upstream origin nuevo
+git reset --hard HEAD~2
