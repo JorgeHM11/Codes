@@ -62,3 +62,5 @@ git merge GitCodes
 git log
 git push --set-upstream origin nuevo
 git reset --hard HEAD~2
+
+git pull origin #actualizar
